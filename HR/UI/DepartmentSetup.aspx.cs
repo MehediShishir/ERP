@@ -13,5 +13,18 @@ namespace HR.UI
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string departmentID = txtDepartmentID.Text;
+            lblDepartmentID.Text = departmentID;
+
+            string departmentName = txtDepartmentName.Text;
+            lblDepartmentName.Text = departmentName;
+
+            string description = txtDescription.Text;
+            lblDescription.Text = description;
+
+        }
     }
 }

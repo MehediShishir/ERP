@@ -13,5 +13,17 @@ namespace HR.UI
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string designationID = txtDesignationID.Text;
+            lblDesignationID.Text = designationID;
+
+            string designationTitle = txtDesignationTitle.Text;
+            lblDesignationTitle.Text = designationTitle;
+
+            string shortCode = txtShortCode.Text;
+            lblShortCode.Text = shortCode;
+        }
     }
 }

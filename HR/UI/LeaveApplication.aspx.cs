@@ -13,5 +13,20 @@ namespace HR.UI
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string leaveRequestID = txtLeaveRequestID.Text;
+            lblLeaveRequestID.Text = leaveRequestID;
+
+            string employeeID = txtEmployeeID.Text;
+            lblEmployeeID.Text = employeeID;
+
+            string leaveType = txtLeaveType.Text;
+            lblLeaveType.Text = leaveType;
+
+            string leaveDate = txtLeaveDate.Text;
+            lblLeaveDate.Text = leaveDate;
+        }
     }
 }
