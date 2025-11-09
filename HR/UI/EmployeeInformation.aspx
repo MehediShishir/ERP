@@ -40,7 +40,7 @@
         <td style="width: 156px">&nbsp;</td>
         <td>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show" />
-            <asp:Button ID="Button2" runat="server" Text="Save" />
+            <asp:Button ID="Button2" runat="server" Text="Save" OnClick="Button2_Click" />
         </td>
         <td>&nbsp;</td>
     </tr>

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace HR.UI
 {
@@ -25,6 +28,41 @@ namespace HR.UI
             string mobileNumber = txtMobileNumber.Text;
             lblMobileNumber.Text = mobileNumber;    
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string employeeName = txtEmployeeName.Text;
+                string email = txtEmail.Text;
+                string mobileNumber = txtMobileNumber.Text;
+                string sql = "INSERT INTO [dbo].[Employee] ([Name], [Email], [Phone_number]) VALUES('" + employeeName + "','" + email + "','" + mobileNumber + "')";
+                ExecuteSql(sql);
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
+
+        }
+
+        private void ExecuteSql(string sql)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+            var myConnection = new SqlConnection(connectionString);
+            myConnection.Open();
+            var myCommand = new SqlCommand(sql, myConnection).ExecuteNonQuery();
+            ClearControl(myConnection);
+            myConnection.Close();
+        }
+
+        private void ClearControl(SqlConnection myConnection)
+        {
+            txtEmployeeName.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtMobileNumber.Text = string.Empty;
         }
     }
 }
