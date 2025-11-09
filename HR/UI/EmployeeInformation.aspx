@@ -41,6 +41,7 @@
         <td>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show" />
             <asp:Button ID="Button2" runat="server" Text="Save" OnClick="Button2_Click" />
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Update" />
         </td>
         <td>&nbsp;</td>
     </tr>

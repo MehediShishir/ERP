@@ -29,6 +29,23 @@ namespace HR.UI
             lblMobileNumber.Text = mobileNumber;    
 
         }
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string employeeName = txtEmployeeName.Text;
+                string email = txtEmail.Text;
+                string mobileNumber = txtMobileNumber.Text;
+                string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [Name]='" + employeeName + "'";
+                ExecuteSql(sql);
+                ClearControl();
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
+
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -40,6 +57,7 @@ namespace HR.UI
                 string mobileNumber = txtMobileNumber.Text;
                 string sql = "INSERT INTO [dbo].[Employee] ([Name], [Email], [Phone_number]) VALUES('" + employeeName + "','" + email + "','" + mobileNumber + "')";
                 ExecuteSql(sql);
+                ClearControl();
             }
             catch (Exception msgException)
             {
@@ -54,15 +72,16 @@ namespace HR.UI
             var myConnection = new SqlConnection(connectionString);
             myConnection.Open();
             var myCommand = new SqlCommand(sql, myConnection).ExecuteNonQuery();
-            ClearControl(myConnection);
             myConnection.Close();
         }
 
-        private void ClearControl(SqlConnection myConnection)
+        private void ClearControl()
         {
             txtEmployeeName.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtMobileNumber.Text = string.Empty;
         }
+
+        
     }
 }
