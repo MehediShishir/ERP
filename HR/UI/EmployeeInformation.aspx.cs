@@ -16,6 +16,14 @@ namespace HR.UI
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string employeeName = txtEmployeeName.Text;
+            lblEmployeeName.Text = employeeName;
+            
+            string email = txtEmail.Text;
+            lblEmail.Text = email;
+
+            string mobileNumber = txtMobileNumber.Text;
+            lblMobileNumber.Text = mobileNumber;    
 
         }
     }

@@ -7,6 +7,17 @@
         </td>
         <td>
             <asp:TextBox ID="txtEmployeeName" runat="server" style="margin-left: 0px"></asp:TextBox>
+            <asp:Label ID="lblEmployeeName" runat="server"></asp:Label>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 156px">
+            <asp:Label ID="Label3" runat="server" Text="Email : "></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:Label ID="lblEmail" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -16,6 +27,7 @@
         </td>
         <td>
             <asp:TextBox ID="txtMobileNumber" runat="server"></asp:TextBox>
+            <asp:Label ID="lblMobileNumber" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -28,10 +40,9 @@
         <td style="width: 156px">&nbsp;</td>
         <td>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show" />
+            <asp:Button ID="Button2" runat="server" Text="Save" />
         </td>
         <td>&nbsp;</td>
     </tr>
 </table>
-<div _designerregion="0">
-</div>
 </asp:Content>
