@@ -33,10 +33,11 @@ namespace HR.UI
         {
             try
             {
+                string employeeID = txtEmployeeID.Text;
                 string employeeName = txtEmployeeName.Text;
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
-                string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [Name]='" + employeeName + "'";
+                string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [ID]='" + employeeID + "'";
                 ExecuteSql(sql);
                 ClearControl();
             }

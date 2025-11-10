@@ -3,6 +3,16 @@
     <table style="width:100%;">
     <tr>
         <td style="width: 156px">
+            <asp:Label ID="Label4" runat="server" Text="EmployeeID"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
+            <asp:Label ID="lblEmployeeID" runat="server"></asp:Label>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 156px">
             <asp:Label ID="Label1" runat="server" Text="Employee Name : "></asp:Label>
         </td>
         <td>
