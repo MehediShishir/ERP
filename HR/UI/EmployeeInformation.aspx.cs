@@ -17,7 +17,7 @@ namespace HR.UI
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnShow_Click(object sender, EventArgs e)
         {
             string employeeName = txtEmployeeName.Text;
             lblEmployeeName.Text = employeeName;
@@ -29,7 +29,7 @@ namespace HR.UI
             lblMobileNumber.Text = mobileNumber;    
 
         }
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace HR.UI
 
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
 
             try
@@ -66,7 +66,23 @@ namespace HR.UI
             }
 
         }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string employeeID = txtEmployeeID.Text;
+                
+                string sql = "DELETE FROM [dbo].[Employee] WHERE [ID]='" + employeeID + "'";
+                ExecuteSql(sql);
+                ClearControl();
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
 
+
+        }
         private void ExecuteSql(string sql)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
@@ -78,10 +94,18 @@ namespace HR.UI
 
         private void ClearControl()
         {
+            txtEmployeeID.Text = string.Empty;
             txtEmployeeName.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtMobileNumber.Text = string.Empty;
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
 
         
     }

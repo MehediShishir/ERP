@@ -49,9 +49,10 @@
     <tr>
         <td style="width: 156px">&nbsp;</td>
         <td>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show" />
-            <asp:Button ID="Button2" runat="server" Text="Save" OnClick="Button2_Click" />
-            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Update" />
+            <asp:Button ID="Button1" runat="server" OnClick="btnShow_Click" Text="Show" />
+            <asp:Button ID="Button2" runat="server" Text="Save" OnClick="btnSave_Click" />
+            <asp:Button ID="Button3" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+            <asp:Button ID="Button4" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         </td>
         <td>&nbsp;</td>
     </tr>
