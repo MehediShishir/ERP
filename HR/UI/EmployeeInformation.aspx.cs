@@ -54,7 +54,7 @@ namespace HR.UI
                 string employeeName = txtEmployeeName.Text;
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
-                string sql = "UPDATE [dbo].[Employee] SET [Name]=@Name, [Email]=@Email, [Phone_number]=@MobileNumber WHERE [ID]=@id";
+                string sql = @"UPDATE [dbo].[Employee] SET [Name]=@Name, [Email]=@Email, [Phone_number]=@MobileNumber WHERE [ID]=@id";
 
                 string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
 
@@ -83,20 +83,6 @@ namespace HR.UI
                 throw msgException;
 
             }
-            //try
-            //{
-            //    string employeeID = txtEmployeeID.Text;
-            //    string employeeName = txtEmployeeName.Text;
-            //    string email = txtEmail.Text;
-            //    string mobileNumber = txtMobileNumber.Text;
-            //    string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [ID]='" + employeeID + "'";
-            //    ExecuteSql(sql);
-            //    ClearControl();
-            //}
-            //catch (Exception msgException)
-            //{
-            //    throw msgException;
-            //}
 
         }
 
@@ -201,14 +187,6 @@ namespace HR.UI
             txtEmail.Text = string.Empty;
             txtMobileNumber.Text = string.Empty;
         }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        
+       
     }
 }
