@@ -50,12 +50,37 @@
         <td style="width: 274px">&nbsp;</td>
         <td style="width: 368px">&nbsp;</td>
     </tr>
+    <td>
+        <asp:Button ID="Button1" runat="server" OnClick="btnShow_Click" Text="Show" />
+        <asp:Button ID="Button2" runat="server" Text="Save" OnClick="btnSave_Click" />
+        <asp:Button ID="Button3" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+        <asp:Button ID="Button4" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+    </td>
+    <td>&nbsp;</td>
+    </tr>
     <tr>
-        <td style="width: 191px">&nbsp;</td>
-        <td style="width: 274px">
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show" />
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <asp:GridView ID="grdLeaveApplication" runat="server" Width="100%">
+            </asp:GridView>
         </td>
-        <td style="width: 368px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
     </tr>
 </table>
 </asp:Content>
