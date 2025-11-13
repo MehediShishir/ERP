@@ -32,19 +32,53 @@ namespace HR.UI
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             try
-            {
-                string employeeID = txtEmployeeID.Text;
+            {   string id = txtEmployeeID.Text;
                 string employeeName = txtEmployeeName.Text;
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
-                string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [ID]='" + employeeID + "'";
-                ExecuteSql(sql);
+                string sql = "UPDATE [dbo].[Employee] SET [Name]=@Name, [Email]=@Email, [Phone_number]=@MobileNumber WHERE [ID]=@id";
+
+                string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.Parameters.AddWithValue("@Name", employeeName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@MobileNumber", mobileNumber);
+
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                }
+
+
                 ClearControl();
             }
             catch (Exception msgException)
             {
                 throw msgException;
+
             }
+            //try
+            //{
+            //    string employeeID = txtEmployeeID.Text;
+            //    string employeeName = txtEmployeeName.Text;
+            //    string email = txtEmail.Text;
+            //    string mobileNumber = txtMobileNumber.Text;
+            //    string sql = "UPDATE [dbo].[Employee] SET [Name]='" + employeeName + "', [Email]='" + email + "', [Phone_number]='" + mobileNumber + "' WHERE [ID]='" + employeeID + "'";
+            //    ExecuteSql(sql);
+            //    ClearControl();
+            //}
+            //catch (Exception msgException)
+            //{
+            //    throw msgException;
+            //}
 
         }
 
@@ -56,13 +90,33 @@ namespace HR.UI
                 string employeeName = txtEmployeeName.Text;
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
-                string sql = "INSERT INTO [dbo].[Employee] ([Name], [Email], [Phone_number]) VALUES('" + employeeName + "','" + email + "','" + mobileNumber + "')";
-                ExecuteSql(sql);
+                string sql = "INSERT INTO [dbo].[Employee] ([Name], [Email], [Phone_number]) VALUES(@Name, @Email, @MobileNumber)";
+
+                string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+                    
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", employeeName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@MobileNumber", mobileNumber);
+
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+                       
+                    }
+                    
+                }
+                
+                
                 ClearControl();
             }
             catch (Exception msgException)
             {
                 throw msgException;
+
             }
 
         }
@@ -70,16 +124,46 @@ namespace HR.UI
         {
             try
             {
-                string employeeID = txtEmployeeID.Text;
+                string id = txtEmployeeID.Text;
                 
-                string sql = "DELETE FROM [dbo].[Employee] WHERE [ID]='" + employeeID + "'";
-                ExecuteSql(sql);
+                string sql = "DELETE FROM [dbo].[Employee] WHERE [ID]=@id";
+                string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+
                 ClearControl();
             }
             catch (Exception msgException)
             {
                 throw msgException;
+
             }
+
+
+
+
+            //try
+            //{
+            //    string employeeID = txtEmployeeID.Text;
+                
+            //    string sql = "DELETE FROM [dbo].[Employee] WHERE [ID]='" + employeeID + "'";
+            //    ExecuteSql(sql);
+            //    ClearControl();
+            //}
+            //catch (Exception msgException)
+            //{
+            //    throw msgException;
+            //}
 
 
         }
