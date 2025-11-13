@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,15 +19,122 @@ namespace HR.UI
         {
 
             string attendanceID = txtAttendanceID.Text;
-            lblAttendanceID.Text = attendanceID;
-
             string employeeID = txtEmployeeID.Text;
-            lblEmployeeID.Text = employeeID;
+            string date = txtDate.Text;          
+        }
 
-            string date = txtDate.Text;
-            lblDate.Text = date;
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            try { 
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                System.Data.DataTable dtAttendance = new System.Data.DataTable();
+                string sql = @"SELECT [Attendance_ID]
+        ,[Employee_ID]
+        ,[Date]
+    FROM [dbo].[Attendance]";
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dtAttendance);
+                }
+                grdAttendance.DataSource = dtAttendance;
+                grdAttendance.DataBind();
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
 
-            
+
+            }
+
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string attendanceID = txtAttendanceID.Text;
+                string employeeID = txtEmployeeID.Text;
+                string date = txtDate.Text;
+                string sql = @"INSERT INTO [dbo].[Attendance]
+           ([Employee_ID]
+           ,[Date])
+        VALUES
+           (@Employee_ID
+              ,@Date)";
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
+                        cmd.Parameters.AddWithValue("@Date", date);
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
+
+
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try {
+                string attendanceID = txtAttendanceID.Text;
+                string employeeID = txtEmployeeID.Text;
+                string date = txtDate.Text;
+                string sql = @"UPDATE [dbo].[Attendance] SET [Employee_ID]=@Employee_ID, [Date]=@Date WHERE [Attendance_ID]=@Attendance_ID";
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@Attendance_ID", attendanceID);
+                        cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
+                        cmd.Parameters.AddWithValue("@Date", date);
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+
+
+            }
+
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try {
+                string attendanceID = txtAttendanceID.Text;
+                string sql = @"DELETE FROM [dbo].[Attendance] WHERE [Attendance_ID]=@Attendance_ID";
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, myConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@Attendance_ID", attendanceID);
+                        myConnection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+
+
+            }
+
         }
     }
 }
