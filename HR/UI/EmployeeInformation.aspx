@@ -56,5 +56,29 @@
         </td>
         <td>&nbsp;</td>
     </tr>
+    <tr>
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <asp:GridView ID="grdEmployee" runat="server" Width="100%">
+            </asp:GridView>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 156px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
 </table>
 </asp:Content>

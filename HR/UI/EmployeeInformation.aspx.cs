@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using System.Data;
 
 namespace HR.UI
 {
@@ -19,15 +20,32 @@ namespace HR.UI
 
         protected void btnShow_Click(object sender, EventArgs e)
         {
-            string employeeName = txtEmployeeName.Text;
-            lblEmployeeName.Text = employeeName;
-            
-            string email = txtEmail.Text;
-            lblEmail.Text = email;
+            try {
+                string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
+                DataTable dtEmployee = new DataTable();
 
-            string mobileNumber = txtMobileNumber.Text;
-            lblMobileNumber.Text = mobileNumber;    
+                string sql = @"SELECT [ID]
+                ,[Name]
+                ,[Email]
+                ,[Phone_number]
+                FROM [dbo].[Employee]";
 
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dtEmployee);
+
+                }
+                grdEmployee.DataSource = dtEmployee;
+                grdEmployee.DataBind();
+
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+
+            }
         }
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
