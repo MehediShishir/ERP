@@ -4,9 +4,10 @@
 
 <html>
 <head runat="server">
+    <title runat="server">ERP System</title>
     <link href="Content/HRSite.css" rel="stylesheet" />
 </head>
-<body>
+
     <form id="form1" runat="server">
         <div>
             <ul class="navbar-nav flex-grow-1" style="">
