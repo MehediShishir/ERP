@@ -33,15 +33,6 @@ namespace HR.UI
         protected global::System.Web.UI.WebControls.TextBox txtLeaveRequestID;
 
         /// <summary>
-        /// lblLeaveRequestID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLeaveRequestID;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +49,6 @@ namespace HR.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeID;
-
-        /// <summary>
-        /// lblEmployeeID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmployeeID;
 
         /// <summary>
         /// Label2 control.
@@ -87,15 +69,6 @@ namespace HR.UI
         protected global::System.Web.UI.WebControls.TextBox txtLeaveType;
 
         /// <summary>
-        /// lblLeaveType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLeaveType;
-
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -112,15 +85,6 @@ namespace HR.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLeaveDate;
-
-        /// <summary>
-        /// lblLeaveDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLeaveDate;
 
         /// <summary>
         /// Button1 control.
