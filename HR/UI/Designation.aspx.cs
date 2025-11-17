@@ -54,6 +54,7 @@ namespace HR.UI
                 );
 
                 ClearControl();
+                showDesignation();
             }
             catch (Exception msgException)
             {
@@ -73,6 +74,7 @@ namespace HR.UI
                 );
 
                 ClearControl();
+                showDesignation();
             }
             catch (Exception msgException)
             {
