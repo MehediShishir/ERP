@@ -33,15 +33,6 @@ namespace HR.UI
         protected global::System.Web.UI.WebControls.TextBox txtDesignationID;
 
         /// <summary>
-        /// lblDesignationID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesignationID;
-
-        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -60,15 +51,6 @@ namespace HR.UI
         protected global::System.Web.UI.WebControls.TextBox txtDesignationTitle;
 
         /// <summary>
-        /// lblDesignationTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesignationTitle;
-
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -85,15 +67,6 @@ namespace HR.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtShortCode;
-
-        /// <summary>
-        /// lblShortCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShortCode;
 
         /// <summary>
         /// Button1 control.

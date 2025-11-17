@@ -1,11 +1,14 @@
 ﻿using HR.BLL;
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 
 namespace HR.UI
 {
     public partial class Designation : System.Web.UI.Page
     {
+        DesignationBLL designationBLL;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -13,25 +16,48 @@ namespace HR.UI
 
         private void ClearControl()
         {
-            txtDesignationID.Text = "";
-            txtDesignationTitle.Text = "";
-            txtShortCode.Text = "";
+            txtDesignationID.Text = string.Empty;
+            txtDesignationTitle.Text = string.Empty;
+            txtShortCode.Text = string.Empty;
+        }
+
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            showDesignation();
+        }
+
+        private void showDesignation()
+        {
+            try
+            {
+                designationBLL = new DesignationBLL();
+                DataTable dt = designationBLL.getDesignations();
+
+                grdDesignation.DataSource = dt;
+                grdDesignation.DataBind();
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                DesignationBLL bll = new DesignationBLL();
-                bll.AddDesignation(txtDesignationID.Text,
-                                   txtDesignationTitle.Text,
-                                   txtShortCode.Text);
+                designationBLL = new DesignationBLL();
+                designationBLL.addDesignation(
+                    txtDesignationID.Text,
+                    txtDesignationTitle.Text,
+                    txtShortCode.Text
+                );
 
                 ClearControl();
             }
-            catch (Exception ex)
+            catch (Exception msgException)
             {
-                throw ex;
+                throw msgException;
             }
         }
 
@@ -39,16 +65,18 @@ namespace HR.UI
         {
             try
             {
-                DesignationBLL bll = new DesignationBLL();
-                bll.UpdateDesignation(txtDesignationID.Text,
-                                      txtDesignationTitle.Text,
-                                      txtShortCode.Text);
+                designationBLL = new DesignationBLL();
+                designationBLL.updateDesignation(
+                    txtDesignationID.Text,
+                    txtDesignationTitle.Text,
+                    txtShortCode.Text
+                );
 
                 ClearControl();
             }
-            catch (Exception ex)
+            catch (Exception msgException)
             {
-                throw ex;
+                throw msgException;
             }
         }
 
@@ -56,31 +84,51 @@ namespace HR.UI
         {
             try
             {
-                DesignationBLL bll = new DesignationBLL();
-                bll.DeleteDesignation(txtDesignationID.Text);
+                designationBLL = new DesignationBLL();
+                designationBLL.deleteDesignation(txtDesignationID.Text);
 
                 ClearControl();
             }
-            catch (Exception ex)
+            catch (Exception msgException)
             {
-                throw ex;
+                throw msgException;
             }
         }
 
-        protected void btnShow_Click(object sender, EventArgs e)
+        protected void grdDesignation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            try
-            {
-                DesignationBLL bll = new DesignationBLL();
-                DataTable dt = bll.GetDesignations();
+            int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
 
-                grdDesignation.DataSource = dt;
-                grdDesignation.DataBind();
-            }
-            catch (Exception ex)
+            string designationID = ((Label)grdDesignation.Rows[selectedIndex]
+                .FindControl("lblDesignationID")).Text;
+
+            if (e.CommandName == "Select")
             {
-                throw ex;
+                txtDesignationID.Text = designationID;
+                txtDesignationTitle.Text = ((Label)grdDesignation.Rows[selectedIndex]
+                    .FindControl("lblDesignationTitle")).Text;
+                txtShortCode.Text = ((Label)grdDesignation.Rows[selectedIndex]
+                    .FindControl("lblShortCode")).Text;
             }
+            else if (e.CommandName == "Delete")
+            {
+                try
+                {
+                    designationBLL = new DesignationBLL();
+                    designationBLL.deleteDesignation(designationID);
+
+                    ClearControl();
+                }
+                catch (Exception msgException)
+                {
+                    throw msgException;
+                }
+            }
+        }
+
+        protected void grdDesignation_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            showDesignation();
         }
 
         protected void btnHome_Click(object sender, EventArgs e)

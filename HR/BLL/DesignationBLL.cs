@@ -6,25 +6,25 @@ namespace HR.BLL
 {
     public class DesignationBLL
     {
-        public void AddDesignation(string id, string title, string shortCode)
+        public void addDesignation(string id, string title, string shortCode)
         {
             DesignationDAL dal = new DesignationDAL();
             dal.InsertDesignation(id, title, shortCode);
         }
 
-        public void UpdateDesignation(string id, string title, string shortCode)
+        public void updateDesignation(string id, string title, string shortCode)
         {
             DesignationDAL dal = new DesignationDAL();
             dal.UpdateDesignation(id, title, shortCode);
         }
 
-        public void DeleteDesignation(string id)
+        public void deleteDesignation(string id)
         {
             DesignationDAL dal = new DesignationDAL();
             dal.DeleteDesignation(id);
         }
 
-        public DataTable GetDesignations()
+        public DataTable getDesignations()
         {
             DesignationDAL dal = new DesignationDAL();
             return dal.GetDesignations();
