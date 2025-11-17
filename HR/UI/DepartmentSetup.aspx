@@ -70,7 +70,9 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 156px">&nbsp;</td>
+        <td style="width: 156px">
+            <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" />
+        </td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>

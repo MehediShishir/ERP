@@ -54,5 +54,11 @@ namespace HR.UI
             bll.DeleteLeaveApplication(txtLeaveRequestID.Text);
             ClearControl();
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/StartPage.aspx");
+
+        }
     }
 }

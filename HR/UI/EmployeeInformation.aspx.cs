@@ -19,11 +19,18 @@ namespace HR.UI
 
         }
 
+        EmployeeBLL employeeBLL;
+
         protected void btnShow_Click(object sender, EventArgs e)
+        {
+            showEmployee();
+        }
+
+        private void showEmployee()
         {
             try
             {
-                EmployeeBLL employeeBLL = new EmployeeBLL();
+                employeeBLL = new EmployeeBLL();
                 DataTable dtEmployee = employeeBLL.getEmployees();
 
                 grdEmployee.DataSource = dtEmployee;
@@ -44,7 +51,7 @@ namespace HR.UI
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
 
-                EmployeeBLL employeeBLL = new EmployeeBLL();
+                employeeBLL = new EmployeeBLL();
                 employeeBLL.updateEmployee(id, employeeName, email, mobileNumber);
 
 
@@ -68,7 +75,7 @@ namespace HR.UI
                 string email = txtEmail.Text;
                 string mobileNumber = txtMobileNumber.Text;
 
-                EmployeeBLL employeeBLL = new EmployeeBLL();
+                employeeBLL = new EmployeeBLL();
                 employeeBLL.addEmployee(employeeName, email, mobileNumber);
 
                 ClearControl();
@@ -86,7 +93,7 @@ namespace HR.UI
             {
                 int id = Convert.ToInt32(txtEmployeeID.Text);
 
-                EmployeeBLL employeeBLL = new EmployeeBLL();
+                employeeBLL = new EmployeeBLL();
                 employeeBLL.deleteEmployee(id);
 
 
@@ -99,14 +106,7 @@ namespace HR.UI
             }
 
         }
-        private void ExecuteSql(string sql)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
-            var myConnection = new SqlConnection(connectionString);
-            myConnection.Open();
-            var myCommand = new SqlCommand(sql, myConnection).ExecuteNonQuery();
-            myConnection.Close();
-        }
+        
 
         private void ClearControl()
         {
@@ -115,6 +115,57 @@ namespace HR.UI
             txtEmail.Text = string.Empty;
             txtMobileNumber.Text = string.Empty;
         }
+
+        protected void grdEmployee_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+            string employeeID = ((Label)grdEmployee.Rows[selectedIndex].FindControl("lblEmployeeID")).Text;
+
+            //string employeeID = grdEmployee.Rows[selectedIndex].Cells[4].Text;
+
+            if (e.CommandName == "Select")
+            {
+               txtEmployeeID.Text = ((Label)grdEmployee.Rows[selectedIndex].FindControl("lblEmployeeID")).Text;
+               txtEmployeeName.Text = ((Label)grdEmployee.Rows[selectedIndex].FindControl("lblEmployeeName")).Text;
+               txtEmail.Text = ((Label)grdEmployee.Rows[selectedIndex].FindControl("lblEmail")).Text;
+               txtMobileNumber.Text = ((Label)grdEmployee.Rows[selectedIndex].FindControl("lblMobileNumber")).Text;
+            }
+           
+            else if (e.CommandName == "Delete")
+            {
+               
+
+                try
+                {
+                    int id = Convert.ToInt32(employeeID);
+
+                    employeeBLL = new EmployeeBLL();
+                    employeeBLL.deleteEmployee(id);
+
+
+                    ClearControl();
+                }
+                catch (Exception msgException)
+                {
+                    throw msgException;
+
+                }
+
+            }
+
+        }
+
+        protected void grdEmployee_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            showEmployee();
+                        
+        }
        
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/StartPage.aspx");
+
+        }
     }
 }

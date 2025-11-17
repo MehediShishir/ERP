@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRSite.Master" AutoEventWireup="true" CodeBehind="LeaveApplication.aspx.cs" Inherits="HR.UI.LeaveApplication" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<table style="width: 60%;">
+    <table style="width: 60%;">
     <tr>
         <td style="width: 191px">
             <asp:Label ID="Label4" runat="server" Text="Leave Request ID : "></asp:Label>
@@ -77,7 +77,9 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 156px">&nbsp;</td>
+        <td style="width: 156px">
+            <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" />
+        </td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>

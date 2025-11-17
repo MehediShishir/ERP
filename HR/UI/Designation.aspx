@@ -50,12 +50,6 @@
         <td style="width: 368px">&nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 191px">&nbsp;</td>
-        <td style="width: 274px">
-            &nbsp;</td>
-        <td style="width: 368px">&nbsp;</td>
-    </tr>
-    <tr>
         <td colspan="3">
             <asp:GridView ID="grdDesignation" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
@@ -69,6 +63,15 @@
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" />
         </td>
     </tr>
 </table>

@@ -7,7 +7,6 @@
         </td>
         <td>
             <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
-            <asp:Label ID="lblEmployeeID" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -17,7 +16,6 @@
         </td>
         <td>
             <asp:TextBox ID="txtEmployeeName" runat="server" style="margin-left: 0px"></asp:TextBox>
-            <asp:Label ID="lblEmployeeName" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -27,7 +25,6 @@
         </td>
         <td>
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-            <asp:Label ID="lblEmail" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -37,7 +34,6 @@
         </td>
         <td>
             <asp:TextBox ID="txtMobileNumber" runat="server"></asp:TextBox>
-            <asp:Label ID="lblMobileNumber" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -52,7 +48,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="btnShow_Click" Text="Show" />
             <asp:Button ID="Button2" runat="server" Text="Save" OnClick="btnSave_Click" />
             <asp:Button ID="Button3" runat="server" OnClick="btnUpdate_Click" Text="Update" />
-            <asp:Button ID="Button4" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+            <asp:Button ID="Button4" runat="server" OnClick="btnDelete_Click" Text="Delete" Visible ="false"/>
         </td>
         <td>&nbsp;</td>
     </tr>
@@ -64,7 +60,32 @@
     </tr>
     <tr>
         <td colspan="3">
-            <asp:GridView ID="grdEmployee" runat="server" Width="100%">
+            <asp:GridView ID="grdEmployee" runat="server" Width="100%" OnRowCommand="grdEmployee_RowCommand" OnRowDeleting="grdEmployee_RowDeleting" AutoGenerateColumns="False"
+>
+                <Columns>
+                    <asp:TemplateField HeaderText="ID">
+                        <ItemTemplate>
+                            <asp:Label ID="lblEmployeeID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Name">
+                        <ItemTemplate>
+                            <asp:Label ID="lblEmployeeName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="MobileNo">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMobileNumber" runat="server" Text='<%# Eval("Phone_number") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email">
+                        <ItemTemplate>
+                            <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" />
+                </Columns>
             </asp:GridView>
         </td>
     </tr>
@@ -75,7 +96,9 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 156px">&nbsp;</td>
+        <td style="width: 156px">
+            <asp:Button ID="Button5" runat="server" Height="27px" OnClick="btnHome_Click" Text="Home" />
+        </td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>

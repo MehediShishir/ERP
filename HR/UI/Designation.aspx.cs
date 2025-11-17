@@ -82,5 +82,10 @@ namespace HR.UI
                 throw ex;
             }
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/StartPage.aspx");
+        }
     }
 }
