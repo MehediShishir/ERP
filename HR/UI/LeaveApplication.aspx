@@ -33,7 +33,7 @@
                 <asp:Label ID="Label3" runat="server" Text="Leave Date :"></asp:Label>
             </td>
             <td style="width: 274px">
-                <asp:TextBox ID="txtLeaveDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtLeaveDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
 
@@ -55,7 +55,7 @@
                     OnRowDeleting="grdLeaveApplication_RowDeleting">
 
                     <Columns>
-                        <asp:TemplateField HeaderText="Request ID">
+                        <asp:TemplateField HeaderText="Request ID" Visible ="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblLeaveRequestID" runat="server" Text='<%# Eval("Leave_Request_ID") %>'></asp:Label>
                             </ItemTemplate>
@@ -75,7 +75,7 @@
 
                         <asp:TemplateField HeaderText="Leave Date">
                             <ItemTemplate>
-                                <asp:Label ID="lblLeaveDate" runat="server" Text='<%# Eval("Leave_Date") %>'></asp:Label>
+                                <asp:Label ID="lblLeaveDate" runat="server" Text='<%# Eval("Leave_Date", "{0:yyyy-MM-dd}") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 

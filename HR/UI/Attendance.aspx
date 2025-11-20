@@ -25,7 +25,7 @@
                 <asp:Label ID="Label3" runat="server" Text="Date : "></asp:Label>
             </td>
             <td style="width: 274px">
-                <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
 
@@ -50,7 +50,7 @@
 
                     <Columns>
 
-                        <asp:TemplateField HeaderText="Attendance ID">
+                        <asp:TemplateField HeaderText="Attendance ID" Visible ="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblAttendanceID" runat="server" Text='<%# Eval("Attendance_ID") %>'></asp:Label>
                             </ItemTemplate>
@@ -64,7 +64,7 @@
 
                         <asp:TemplateField HeaderText="Date">
                             <ItemTemplate>
-                                <asp:Label ID="lblDate" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                                <asp:Label ID="lblDate" runat="server" Text='<%# Eval("Date", "{0:yyyy-MM-dd}") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 

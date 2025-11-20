@@ -42,7 +42,7 @@ namespace HR.UI
             {
                 string attendanceID = txtAttendanceID.Text;
                 string employeeID = txtEmployeeID.Text;
-                string date = txtDate.Text;
+                DateTime date = Convert.ToDateTime(txtDate.Text);
 
                 attendanceBLL = new AttendanceBLL();
                 attendanceBLL.addAttendance(attendanceID, employeeID, date);
@@ -62,7 +62,7 @@ namespace HR.UI
             {
                 string attendanceID = txtAttendanceID.Text;
                 string employeeID = txtEmployeeID.Text;
-                string date = txtDate.Text;
+                DateTime date = Convert.ToDateTime(txtDate.Text);
 
                 attendanceBLL = new AttendanceBLL();
                 attendanceBLL.updateAttendance(attendanceID, employeeID, date);

@@ -5,10 +5,10 @@
 
     <tr>
         <td style="width: 191px">
-            <asp:Label ID="Label1" runat="server" Text="Department ID : "></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Department ID : " Visible ="false"></asp:Label>
         </td>
         <td style="width: 274px">
-            <asp:TextBox ID="txtDepartmentID" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDepartmentID" runat="server" Visible ="false"></asp:TextBox>
         </td>
     </tr>
 
@@ -48,7 +48,7 @@
 
                 <Columns>
 
-                    <asp:TemplateField HeaderText="Dept ID">
+                    <asp:TemplateField HeaderText="Dept ID" Visible ="false">
                         <ItemTemplate>
                             <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("Department_ID") %>'></asp:Label>
                         </ItemTemplate>

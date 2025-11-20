@@ -1,6 +1,8 @@
-﻿using System;
+﻿using HR.UI;
+using System;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 
 namespace HR.DAL
@@ -9,7 +11,7 @@ namespace HR.DAL
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["dberpconnection"].ToString();
 
-        public void InsertLeaveApplication(string employeeID, string leaveType, string leaveDate)
+        public void InsertLeaveApplication(string employeeID, string leaveType, DateTime leaveDate)
         {
             string sql = @"INSERT INTO [dbo].[LeaveApplication]
                             ([Employee_ID], [Leave_Type], [Leave_Date])
@@ -18,12 +20,15 @@ namespace HR.DAL
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
-                cmd.Parameters.AddWithValue("@Leave_Type", leaveType);
-                cmd.Parameters.AddWithValue("@Leave_Date", leaveDate);
+
+                cmd.Parameters.Add(new SqlParameter("@Employee_ID", SqlDbType.NVarChar) { Value = (object)employeeID ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@Leave_Type", SqlDbType.NVarChar) { Value = (object)leaveType ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@Leave_Date", SqlDbType.Date) { Value = (object)leaveDate ?? DBNull.Value });
 
                 con.Open();
                 cmd.ExecuteNonQuery();
+
+               
             }
         }
 
@@ -47,7 +52,7 @@ namespace HR.DAL
             return dt;
         }
 
-        public void UpdateLeaveApplication(string leaveRequestID, string employeeID, string leaveType, string leaveDate)
+        public void UpdateLeaveApplication(string leaveRequestID, string employeeID, string leaveType, DateTime leaveDate)
         {
             string sql = @"UPDATE [dbo].[LeaveApplication] 
                            SET [Employee_ID] = @Employee_ID,
@@ -58,10 +63,10 @@ namespace HR.DAL
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                cmd.Parameters.AddWithValue("@Leave_Request_ID", leaveRequestID);
-                cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
-                cmd.Parameters.AddWithValue("@Leave_Type", leaveType);
-                cmd.Parameters.AddWithValue("@Leave_Date", leaveDate);
+                cmd.Parameters.Add(new SqlParameter("@Leave_Request_ID", SqlDbType.NVarChar) { Value = (object)leaveRequestID ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@Employee_ID", SqlDbType.NVarChar) { Value = (object)employeeID ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@Leave_Type", SqlDbType.NVarChar) { Value = (object)leaveType ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@Leave_Date", SqlDbType.Date) { Value = (object)leaveDate ?? DBNull.Value });
 
                 con.Open();
                 cmd.ExecuteNonQuery();

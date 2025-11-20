@@ -36,13 +36,20 @@ namespace HR.UI
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+
+
             try
             {
+                string leaveRequestID = txtLeaveRequestID.Text;
+                string leaveType = txtLeaveType.Text;
+                string employeeID = txtEmployeeID.Text;
+                DateTime leaveDate = Convert.ToDateTime(txtLeaveDate.Text);
                 bll = new LeaveApplicationBLL();
+
                 bll.SaveLeaveApplication(
-                    txtEmployeeID.Text,
-                    txtLeaveType.Text,
-                    txtLeaveDate.Text
+                    employeeID,
+                    leaveType,
+                    leaveDate
                 );
 
                 ClearControl();
@@ -58,12 +65,17 @@ namespace HR.UI
         {
             try
             {
+                string leaveRequestID = txtLeaveRequestID.Text;
+                string leaveType = txtLeaveType.Text;
+                string employeeID = txtEmployeeID.Text;
+                DateTime leaveDate = Convert.ToDateTime(txtLeaveDate.Text);
                 bll = new LeaveApplicationBLL();
+                
                 bll.UpdateLeaveApplication(
-                    txtLeaveRequestID.Text,
-                    txtEmployeeID.Text,
-                    txtLeaveType.Text,
-                    txtLeaveDate.Text
+                    leaveRequestID,
+                    employeeID,
+                    leaveType,
+                    leaveDate
                 );
 
                 ClearControl();
@@ -79,8 +91,10 @@ namespace HR.UI
         {
             try
             {
+                string leaveRequestID = txtLeaveRequestID.Text;
+
                 bll = new LeaveApplicationBLL();
-                bll.DeleteLeaveApplication(txtLeaveRequestID.Text);
+                bll.DeleteLeaveApplication(leaveRequestID);
 
                 ClearControl();
             }

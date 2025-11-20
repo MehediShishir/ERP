@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using HR.DAL;
 
 namespace HR.BLL
@@ -7,7 +8,7 @@ namespace HR.BLL
     {
         LeaveApplicationDAL dal = new LeaveApplicationDAL();
 
-        public void SaveLeaveApplication(string empID, string leaveType, string leaveDate)
+        public void SaveLeaveApplication(string empID, string leaveType, DateTime leaveDate)
         {
             dal.InsertLeaveApplication(empID, leaveType, leaveDate);
         }
@@ -17,7 +18,7 @@ namespace HR.BLL
             return dal.GetLeaveApplications();
         }
 
-        public void UpdateLeaveApplication(string leaveRequestID, string empID, string leaveType, string leaveDate)
+        public void UpdateLeaveApplication(string leaveRequestID, string empID, string leaveType, DateTime leaveDate)
         {
             dal.UpdateLeaveApplication(leaveRequestID, empID, leaveType, leaveDate);
         }

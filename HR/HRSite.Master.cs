@@ -13,5 +13,30 @@ namespace HR
         {
 
         }
+
+        protected void btnAttendance_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/Attendance.aspx");
+        }
+
+        protected void btnDepartmentSetup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/DepartmentSetup.aspx");
+        }
+
+        protected void btnDesignation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/Designation.aspx");
+        }
+
+        protected void btnEmployeeInformation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/EmployeeInformation.aspx");
+        }
+
+        protected void btnLeaveApplication_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/LeaveApplication.aspx");
+        }
     }
 }

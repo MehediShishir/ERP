@@ -6,19 +6,51 @@
 <head runat="server">
     <title runat="server">ERP System</title>
     <link href="Content/HRSite.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 160px;
+        }
+    </style>
 </head>
 
     <form id="form1" runat="server">
-        <div>
+        
+        
+
+        <div>                    
             <ul class="navbar-nav flex-grow-1" style="">
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Sign In</a></li>
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Sign In</a><table style="padding: 1px; width:100%; font-family: 'Bahnschrift Light SemiCondensed'; text-decoration: blink; font-style: italic; color: #000099; background-color: #C0C0C0;" border="1" role="menubar">
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Label ID="Label1" runat="server" BorderColor="#99FF66" Text="ERP SYSTEM"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnAttendance" runat="server" Text="Attendance"
+                                OnClick="btnAttendance_Click" />
+
+                            <asp:Button ID="btnDepartmentSetup" runat="server" Text="Department Setup"
+                                OnClick="btnDepartmentSetup_Click" />
+
+                            <asp:Button ID="btnDesignation" runat="server" Text="Designation"
+                                   OnClick="btnDesignation_Click" />
+
+                            <asp:Button ID="btnEmployeeInformation" runat="server" Text="Employee Information"
+                                   OnClick="btnEmployeeInformation_Click" />
+
+                            <asp:Button ID="btnLeaveApplication" runat="server" Text="Leave Application"
+                                   OnClick="btnLeaveApplication_Click" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </table>
+                </li>
             </ul>
-        </div>
+        <div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer>
+        <footer style="font-family: 'Bahnschrift Light SemiCondensed'; text-decoration: blink; font-style: italic;">
             <p>&copy; <%: DateTime.Now.Year %> - HR Module</p>
         </footer>
     </form>

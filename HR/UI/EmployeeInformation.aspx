@@ -63,7 +63,7 @@
             <asp:GridView ID="grdEmployee" runat="server" Width="100%" OnRowCommand="grdEmployee_RowCommand" OnRowDeleting="grdEmployee_RowDeleting" AutoGenerateColumns="False"
 >
                 <Columns>
-                    <asp:TemplateField HeaderText="ID">
+                    <asp:TemplateField HeaderText="ID" Visible ="false">
                         <ItemTemplate>
                             <asp:Label ID="lblEmployeeID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
                         </ItemTemplate>

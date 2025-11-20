@@ -9,7 +9,7 @@ namespace HR.BLL
 {
     public class AttendanceBLL
     {
-        public void addAttendance(string attendanceID, string employeeID, string date)
+        public void addAttendance(string attendanceID, string employeeID, DateTime date)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace HR.BLL
         }
 
 
-        public void updateAttendance(string attendanceID, string employeeID, String date)
+        public void updateAttendance(string attendanceID, string employeeID, DateTime date)
         {
             try
             {

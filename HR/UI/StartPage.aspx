@@ -4,7 +4,7 @@
 
     <div style="padding: 40px; text-align:center;">
 
-        <asp:Button ID="btnAttendance" runat="server" Text="Attendance"
+       <%-- <asp:Button ID="btnAttendance" runat="server" Text="Attendance"
             CssClass="menuBtn" OnClick="btnAttendance_Click" />
 
         <asp:Button ID="btnDepartmentSetup" runat="server" Text="Department Setup"
@@ -17,7 +17,7 @@
             CssClass="menuBtn" OnClick="btnEmployeeInformation_Click" />
 
         <asp:Button ID="btnLeaveApplication" runat="server" Text="Leave Application"
-            CssClass="menuBtn" OnClick="btnLeaveApplication_Click" />
+            CssClass="menuBtn" OnClick="btnLeaveApplication_Click" />--%>
 
     </div>
 

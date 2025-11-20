@@ -18,7 +18,7 @@ namespace HR.DAL
 
         }
 
-        public void insertAttendance(string attendanceID, string employeeID, string date)
+        public void insertAttendance(string attendanceID, string employeeID, DateTime date)
         {
             try
             {
@@ -32,9 +32,9 @@ namespace HR.DAL
                 {
                     using (var cmd = new System.Data.SqlClient.SqlCommand(sql, myConnection))
                     {
-                        cmd.Parameters.Add(new SqlParameter("@AttendanceID", SqlDbType.NVarChar) { Value = (object)attendanceID ?? DBNull.Value });
+                        
                         cmd.Parameters.Add(new SqlParameter("@Employee_ID", SqlDbType.NVarChar) { Value = (object)employeeID ?? DBNull.Value });
-                        cmd.Parameters.Add(new SqlParameter("@Date", SqlDbType.NVarChar) { Value = (object)date ?? DBNull.Value });
+                        cmd.Parameters.Add(new SqlParameter("@Date", SqlDbType.Date) { Value = (object)date ?? DBNull.Value });
 
                         myConnection.Open();
                         cmd.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace HR.DAL
         }
 
 
-        public void updateAttendance(string attendanceID, string employeeID, string date)
+        public void updateAttendance(string attendanceID, string employeeID, DateTime date)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace HR.DAL
                     {
                         cmd.Parameters.Add(new SqlParameter("@AttendanceID", SqlDbType.NVarChar) { Value = (object)attendanceID ?? DBNull.Value });
                         cmd.Parameters.Add(new SqlParameter("@Employee_ID", SqlDbType.NVarChar) { Value = (object)employeeID ?? DBNull.Value });
-                        cmd.Parameters.Add(new SqlParameter("@Date", SqlDbType.NVarChar) { Value = (object)date ?? DBNull.Value });
+                        cmd.Parameters.Add(new SqlParameter("@Date", SqlDbType.Date) { Value = (object)date ?? DBNull.Value });
 
                         myConnection.Open();
                         cmd.ExecuteNonQuery();

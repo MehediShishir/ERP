@@ -53,7 +53,7 @@
                     OnRowDeleting="grdDesignation_RowDeleting">
 
                     <Columns>
-                        <asp:TemplateField HeaderText="ID">
+                        <asp:TemplateField HeaderText="ID" Visible ="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblDesignationID" runat="server" Text='<%# Eval("Designation_ID") %>'></asp:Label>
                             </ItemTemplate>
