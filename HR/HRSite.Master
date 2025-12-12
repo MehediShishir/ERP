@@ -1,58 +1,47 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HRSite.master.cs" Inherits="HR.HRSite" %>
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head runat="server">
     <title runat="server">ERP System</title>
     <link href="Content/HRSite.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style1 {
-            width: 160px;
-        }
-    </style>
 </head>
 
+<body>
     <form id="form1" runat="server">
-        
-        
 
-        <div>                    
-            <ul class="navbar-nav flex-grow-1" style="">
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Sign In</a><table style="padding: 1px; width:100%; font-family: 'Bahnschrift Light SemiCondensed'; text-decoration: blink; font-style: italic; color: #000099; background-color: #C0C0C0;" border="1" role="menubar">
-                    <tr>
-                        <td class="auto-style1">
-                            <asp:Label ID="Label1" runat="server" BorderColor="#99FF66" Text="ERP SYSTEM"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Button ID="btnAttendance" runat="server" Text="Attendance"
-                                OnClick="btnAttendance_Click" />
+        <!-- HEADER + NAV BAR -->
+        <header class="erp-header">
+            <h1 class="erp-title">ERP SYSTEM</h1>
 
-                            <asp:Button ID="btnDepartmentSetup" runat="server" Text="Department Setup"
-                                OnClick="btnDepartmentSetup_Click" />
+            <nav class="erp-nav">
+                <asp:Button ID="btnAttendance" runat="server" Text="Attendance"
+                    CssClass="nav-btn" OnClick="btnAttendance_Click" />
 
-                            <asp:Button ID="btnDesignation" runat="server" Text="Designation"
-                                   OnClick="btnDesignation_Click" />
+                <asp:Button ID="btnDepartmentSetup" runat="server" Text="Department Setup"
+                    CssClass="nav-btn" OnClick="btnDepartmentSetup_Click" />
 
-                            <asp:Button ID="btnEmployeeInformation" runat="server" Text="Employee Information"
-                                   OnClick="btnEmployeeInformation_Click" />
+                <asp:Button ID="btnDesignation" runat="server" Text="Designation"
+                    CssClass="nav-btn" OnClick="btnDesignation_Click" />
 
-                            <asp:Button ID="btnLeaveApplication" runat="server" Text="Leave Application"
-                                   OnClick="btnLeaveApplication_Click" />
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    </table>
-                </li>
-            </ul>
-        <div>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        <footer style="font-family: 'Bahnschrift Light SemiCondensed'; text-decoration: blink; font-style: italic;">
+                <asp:Button ID="btnEmployeeInformation" runat="server" Text="Employee Information"
+                    CssClass="nav-btn" OnClick="btnEmployeeInformation_Click" />
+
+                <asp:Button ID="btnLeaveApplication" runat="server" Text="Leave Application"
+                    CssClass="nav-btn" OnClick="btnLeaveApplication_Click" />
+            </nav>
+        </header>
+
+        <!-- CONTENT -->
+        <main class="body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="erp-footer">
             <p>&copy; <%: DateTime.Now.Year %> - HR Module</p>
         </footer>
+
     </form>
 </body>
 </html>

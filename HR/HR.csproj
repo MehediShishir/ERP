@@ -187,6 +187,7 @@
     <Content Include="UI\EmployeeInformation.aspx" />
     <Content Include="UI\LeaveApplication.aspx" />
     <Content Include="UI\StartPage.aspx" />
+    <Content Include="UI\Login.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -207,6 +208,7 @@
     <Compile Include="BLL\DesignationBLL.cs" />
     <Compile Include="BLL\EmployeeBLL.cs" />
     <Compile Include="BLL\LeaveApplicationBLL.cs" />
+    <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +221,7 @@
     <Compile Include="DAL\DesignationDAL.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\LeaveApplicationDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +309,13 @@
     </Compile>
     <Compile Include="UI\StartPage.aspx.designer.cs">
       <DependentUpon>StartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
