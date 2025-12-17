@@ -19,10 +19,10 @@
             <div class="login-card">
                 <asp:Label ID="lblMsg" runat="server" Text="" CssClass="login-error"></asp:Label>
 
-                <asp:TextBox ID="txtUserName" runat="server" CssClass="login-input" placeholder="Username"></asp:TextBox>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="login-input" TextMode="Password" placeholder="Password"></asp:TextBox>
+                <asp:TextBox ID="txtUserName" runat="server" CssClass="login-input" placeholder="Username" style="width: 200px"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="login-input" TextMode="Password" placeholder="Password" style="width: 200px"></asp:TextBox>
 
-                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="login-btn" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="login-btn" OnClick="btnLogin_Click" style="width: 200px"/>
             </div>
         </div>
 

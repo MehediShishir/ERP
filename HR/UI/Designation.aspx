@@ -1,31 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRSite.Master" AutoEventWireup="true" CodeBehind="Designation.aspx.cs" Inherits="HR.UI.Designation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width: 60%;">
+    <table style="width: 100%;">
         <tr>
-            <td style="width: 191px">
-                <asp:Label ID="Label1" runat="server" Text="Designation ID : "></asp:Label>
+            <td style="width: 150px">
+                <asp:Label ID="Label1" runat="server" Text="Designation ID : " Visible ="false"></asp:Label>
             </td>
-            <td style="width: 274px">
-                <asp:TextBox ID="txtDesignationID" runat="server"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="txtDesignationID" runat="server" Visible ="false"></asp:TextBox>
             </td>
             <td></td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label2" runat="server" Text="Designation Title : "></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtDesignationTitle" runat="server"></asp:TextBox>
             </td>
             <td></td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label3" runat="server" Text="Short Code : "></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtShortCode" runat="server"></asp:TextBox>
             </td>
             <td></td>
@@ -81,7 +81,7 @@
 
         <tr>
             <td colspan="3">
-                <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" />
+                <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" Visible ="false"/>
             </td>
         </tr>
     </table>

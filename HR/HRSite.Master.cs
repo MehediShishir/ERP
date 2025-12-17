@@ -16,7 +16,10 @@ namespace HR
                 Response.Redirect("~/Login.aspx");
             }
         }
-
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UI/StartPage.aspx");
+        }
 
         protected void btnAttendance_Click(object sender, EventArgs e)
         {
@@ -41,6 +44,12 @@ namespace HR
         protected void btnLeaveApplication_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/UI/LeaveApplication.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/UI/Login.aspx");
         }
     }
 }

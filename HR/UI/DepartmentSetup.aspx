@@ -1,31 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRSite.Master" AutoEventWireup="true" CodeBehind="DepartmentSetup.aspx.cs" Inherits="HR.UI.DepartmentSetup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<table style="width: 60%;">
+<table style="width: 100%;">
 
     <tr>
-        <td style="width: 191px">
+        <td style="width: 150px">
             <asp:Label ID="Label1" runat="server" Text="Department ID : " Visible ="false"></asp:Label>
         </td>
-        <td style="width: 274px">
+        <td>
             <asp:TextBox ID="txtDepartmentID" runat="server" Visible ="false"></asp:TextBox>
         </td>
     </tr>
 
     <tr>
-        <td style="width: 191px">
+        <td style="width: 150px">
             <asp:Label ID="Label2" runat="server" Text="Department Name : "></asp:Label>
         </td>
-        <td style="width: 274px">
+        <td>
             <asp:TextBox ID="txtDepartmentName" runat="server"></asp:TextBox>
         </td>
     </tr>
 
     <tr>
-        <td style="width: 191px">
+        <td style="width: 150px">
             <asp:Label ID="Label3" runat="server" Text="Description : "></asp:Label>
         </td>
-        <td style="width: 274px">
+        <td>
             <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
         </td>
     </tr>
@@ -77,7 +77,7 @@
 
     <tr>
         <td>
-            <asp:Button ID="Button5" runat="server" Text="Home" OnClick="btnHome_Click" />
+            <asp:Button ID="Button5" runat="server" Text="Home" OnClick="btnHome_Click" Visible ="false" />
         </td>
     </tr>
 

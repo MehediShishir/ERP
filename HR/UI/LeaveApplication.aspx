@@ -1,38 +1,38 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRSite.Master" AutoEventWireup="true" CodeBehind="LeaveApplication.aspx.cs" Inherits="HR.UI.LeaveApplication" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width: 60%;">
+    <table style="width: 100%;">
         <tr>
-            <td style="width: 191px">
-                <asp:Label ID="Label4" runat="server" Text="Leave Request ID : "></asp:Label>
+            <td style="width: 150px">
+                <asp:Label ID="Label4" runat="server" Text="Leave Request ID : " Visible ="false"></asp:Label>
             </td>
-            <td style="width: 274px">
-                <asp:TextBox ID="txtLeaveRequestID" runat="server"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="txtLeaveRequestID" runat="server" Visible ="false"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label1" runat="server" Text="Employee ID : "></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label2" runat="server" Text="Leave Type :"></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtLeaveType" runat="server"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label3" runat="server" Text="Leave Date :"></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtLeaveDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
@@ -89,7 +89,7 @@
 
         <tr>
             <td>
-                <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" />
+                <asp:Button ID="Button5" runat="server" OnClick="btnHome_Click" Text="Home" Visible ="false"/>
             </td>
         </tr>
     </table>

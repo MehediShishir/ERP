@@ -1,30 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRSite.Master" AutoEventWireup="true" CodeBehind="Attendance.aspx.cs" Inherits="HR.UI.Attendance" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <table style="width: 60%;">
+    <table style="width: 100%;">
         <tr>
-            <td style="width: 191px">
-                <asp:Label ID="Label1" runat="server" Text="Attendance ID : "></asp:Label>
+            <td style="width: 150px">
+                <asp:Label ID="Label1" runat="server" Text="Attendance ID : " Visible ="false"></asp:Label>
             </td>
-            <td style="width: 274px">
-                <asp:TextBox ID="txtAttendanceID" runat="server"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="txtAttendanceID" runat="server" Visible ="false"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label2" runat="server" Text="Employee ID : "></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td style="width: 191px">
+            <td style="width: 150px">
                 <asp:Label ID="Label3" runat="server" Text="Date : "></asp:Label>
             </td>
-            <td style="width: 274px">
+            <td>
                 <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
@@ -79,7 +79,7 @@
 
         <tr>
             <td>
-                <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Home" />
+                <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Home" Visible ="false" />
             </td>
         </tr>
 
